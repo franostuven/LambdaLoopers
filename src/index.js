@@ -4,13 +4,13 @@ const app = express();
 //-----------------------------------------
 const jwt = require('jsonwebtoken');             // Libreria del Token
 // constraseña
-const bcrypt = require('bcrypt');               // Libreria de Encriptacion
+//const bcrypt = require('bcrypt');               // Libreria de Encriptacion
 
 // import routes
-const authRoutes = require('./routes/auth');
+//const authRoutes = require('./routes/auth');
 
 // route middlewares
-app.use('/api/user', authRoutes);
+//app.use('/api/user', authRoutes);
 // ----------------------------------------
 
 // Settings servidor
@@ -21,10 +21,10 @@ app.set('port',  process.env.PORT ||  3000);  //process..... es para que tome el
 app.use(express.json());   //convierte los modulo de json cuando los reciba
 
 // Routes (rutas para que se lleguen desde la web) al hacer el require y no usar rutas, toma la raiz /
-app.use(require('./routes/employees'));
+app.use(require('./routes/productos'));
 
 // Routes (ruta de Loguin y Registro)
-app.use(require('./routes/login'));
+//app.use(require('./routes/login'));
 
 // Starting the server
 app.listen(app.get('port'), ()=> {
