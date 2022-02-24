@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-var app = express();
+//var app = express();
 
 const articulos = [
         {product: 'water', type: 'drinks', quantity: 10, unitPrice:1},
@@ -11,13 +11,16 @@ const articulos = [
     ];
 
 // RUTA DIRECTA CON PARAMETRO (GET)
-router.get('/:id', (req, res) => {
+router.get('/:product', (req, res) => {
     const { product } = req.params;
-    const res = articulos.find( el => el.product === product);
-    if(res < 0) {
-        console.log('No se encontro el producto');
+    res = articulos.find( el => el.product === product);
+   console.log(product)
+   if(res === undefined) {
+       res = "no se encontro nada"
+       console.log('No se encontro el producto');
     }
-
+    console.log(res)
+    return res;
 });
 
 
